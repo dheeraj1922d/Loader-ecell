@@ -1,0 +1,60 @@
+.loader{
+    width: 100vw;
+    height: 100vh;
+
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+
+
+
+}
+
+svg{
+    height: 400px;
+    width: 400px;
+}
+
+
+
+.loading-text {
+   color: white;
+   margin-top: 4rem;
+   font-weight: bold;
+   font-size: 20px;
+  }
+  .loading-text:after {
+    content: "Loading";
+    font-weight: bold;
+    animation-name: loading;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      content: "Loading";
+    }
+    15% {
+      content: "Loading.";
+    }
+    30% {
+      content: "Loading..";
+    }
+    55% {
+      content: "Loading...";
+    }
+    70% {
+      content: "Loading..";
+    }
+    85% {
+      content: "Loading.";
+    }
+  }
+
+
