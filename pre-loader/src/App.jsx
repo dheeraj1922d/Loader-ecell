@@ -20,11 +20,13 @@ function App() {
         //  console.log(myData);
         setData(myData);
 
-        setloader(false);
       }
 
       catch(error){
           console.log(error);
+      }
+      finally{
+        setloader(false);
       }
   }
 
