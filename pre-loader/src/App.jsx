@@ -2,15 +2,34 @@ import { useEffect, useState } from 'react'
 
 import './App.css'
 import Loader from './components/Loader.jsx'
+import './assets/data.json'
+import Page from './components/Page.jsx'
+
 
 function App() {
   
   const [loader, setloader] = useState(true);
+  const [useData, setData]=useState({});
+  
+  const getUserData=async ()=>{
+      try{
+        //fetching sample api 
+        const response =await fetch("https://thapatechnical.github.io/userapi/users.json");
+        
+        const myData=await response.json();
+        //  console.log(myData);
+        setData(myData);
+
+        setloader(false);
+      }
+
+      catch(error){
+          console.log(error);
+      }
+  }
 
   useEffect(() => {
-    setTimeout(() => {
-      setloader(false);
-    }, 8000);
+    getUserData(); 
   
 
   }, []);
@@ -28,7 +47,9 @@ function App() {
       :
       (
         <div className="wrapper">
-          <h1>Hello everyone</h1>
+          
+          <Page useData={useData}></Page>
+        
         </div>
         
       )
